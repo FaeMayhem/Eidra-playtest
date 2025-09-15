@@ -1,0 +1,9 @@
+{
+  "id": "mirrorfields_encounter",
+  "text": "A basalt slab bears a faint sigil 🜻. At its base, a fissure glows faintly. A small flame rises, cupped in unseen hands. Nearby, a shard of mirror-glass trembles as it catches the light.",
+  "choices": [
+    { "id": "observe_flame", "label": "Observe the flame closely.", "target": "flame_result" },
+    { "id": "pick_shard", "label": "Pick up the mirror-glass shard.", "target": "shard_result" }
+  ]
+}
+
