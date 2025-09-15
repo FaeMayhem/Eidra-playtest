@@ -1,36 +1,50 @@
-import { eidra } from "../engine/engine.js";
+// super-simple scene loader (no dependencies)
 
-const sessionId = "demo";
 const box = document.getElementById("eidra-out");
 
-// Render a scene into the page
-async function renderScene(out) {
-  // clear the box
+// render a scene (text + buttons)
+function render(scene) {
+  if (!box) return;
   box.innerHTML = "";
 
-  // show scene text
-  const text = document.createElement("p");
-  text.textContent = out.scene.text;
-  box.appendChild(text);
+  const h = document.createElement("div");
+  h.innerHTML = `<div style="opacity:.8;margin-bottom:.5rem"><b>Scene:</b> ${scene.id}</div>`;
+  box.appendChild(h);
 
-  // show choices as buttons
-  const choicesBox = document.createElement("div");
-  out.scene.choices.forEach(c => {
-    const btn = document.createElement("button");
-    btn.textContent = c.label;
-    btn.style.display = "block";
-    btn.style.margin = "0.5rem 0";
-    btn.onclick = async () => {
-      const next = await eidra.choose({ sessionId, choiceId: c.id });
-      renderScene(next);
-    };
-    choicesBox.appendChild(btn);
-  });
-  box.appendChild(choicesBox);
+  const p = document.createElement("p");
+  p.textContent = scene.text || "(no text)";
+  box.appendChild(p);
+
+  if (Array.isArray(scene.choices) && scene.choices.length) {
+    const list = document.createElement("div");
+    list.style.marginTop = ".75rem";
+    scene.choices.forEach(c => {
+      const btn = document.createElement("button");
+      btn.textContent = c.label || c.id;
+      btn.style.display = "block";
+      btn.style.margin = ".5rem 0";
+      btn.onclick = () => load(c.target);
+      list.appendChild(btn);
+    });
+    box.appendChild(list);
+  }
 }
 
-// initial load
-(async () => {
-  const out = await eidra.load_scene({ sessionId, sceneId: "mirrorfields_intro" });
-  renderScene(out);
-})();
+// fetch a scene JSON by id
+async function load(id) {
+  box.textContent = "Loading...";
+  // cache-buster to avoid old copies
+  const url = `./content/${id}.json?v=${Date.now()}`;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    const scene = await res.json();
+    render(scene);
+  } catch (err) {
+    box.innerHTML = `<b>Error:</b> ${String(err)}`;
+    console.error(err);
+  }
+}
+
+// kick off
+load("mirrorfields_intro");
