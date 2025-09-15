@@ -1,39 +1,40 @@
-// super-simple scene loader (no dependencies)
+// super-simple, dependency-free scene loader
 
 const box = document.getElementById("eidra-out");
 
-// render a scene (text + buttons)
+// draw one scene (text + buttons)
 function render(scene) {
   if (!box) return;
   box.innerHTML = "";
 
-  const h = document.createElement("div");
-  h.innerHTML = `<div style="opacity:.8;margin-bottom:.5rem"><b>Scene:</b> ${scene.id}</div>`;
-  box.appendChild(h);
+  const head = document.createElement("div");
+  head.style.opacity = ".8";
+  head.style.marginBottom = ".5rem";
+  head.innerHTML = `<b>Scene:</b> ${scene.id}`;
+  box.appendChild(head);
 
   const p = document.createElement("p");
   p.textContent = scene.text || "(no text)";
   box.appendChild(p);
 
   if (Array.isArray(scene.choices) && scene.choices.length) {
-    const list = document.createElement("div");
-    list.style.marginTop = ".75rem";
+    const choices = document.createElement("div");
+    choices.style.marginTop = ".75rem";
     scene.choices.forEach(c => {
       const btn = document.createElement("button");
       btn.textContent = c.label || c.id;
       btn.style.display = "block";
       btn.style.margin = ".5rem 0";
       btn.onclick = () => load(c.target);
-      list.appendChild(btn);
+      choices.appendChild(btn);
     });
-    box.appendChild(list);
+    box.appendChild(choices);
   }
 }
 
-// fetch a scene JSON by id
+// fetch a scene JSON by id (with cache-buster)
 async function load(id) {
   box.textContent = "Loading...";
-  // cache-buster to avoid old copies
   const url = `./content/${id}.json?v=${Date.now()}`;
   try {
     const res = await fetch(url);
@@ -41,10 +42,10 @@ async function load(id) {
     const scene = await res.json();
     render(scene);
   } catch (err) {
-    box.innerHTML = `<b>Error:</b> ${String(err)}`;
     console.error(err);
+    box.innerHTML = `<b>Error:</b> ${String(err)}`;
   }
 }
 
-// kick off
+// start at the intro
 load("mirrorfields_intro");
