@@ -1,7 +1,11 @@
 {
   "id": "flame_result",
-  "text": "The flame warms your hand like a presence beside you. It does not burn.",
+  "text": "You lean in. The flame whispers like a held breath. Somewhere, glass remembers sunlight.",
   "choices": [
-    { "id": "back", "label": "Return to the basalt slab.", "target": "mirrorfields_encounter" }
+    {
+      "id": "back",
+      "label": "Return to the slab.",
+      "target": "mirrorfields_encounter"
+    }
   ]
 }
