@@ -1,0 +1,21 @@
+{
+  "id": "gate_hall",
+  "text": "Inside is a lengthless hall of cool glass. Footfalls travel ahead of you and return as if someone walks with you.",
+  "choices": [
+    {
+      "id": "call_out",
+      "label": "Call out to the echoing steps.",
+      "target": "gate_echo"
+    },
+    {
+      "id": "touch_wall",
+      "label": "Lay your palm to the glass.",
+      "target": "gate_reflection"
+    },
+    {
+      "id": "leave_hall",
+      "label": "Turn back through the door.",
+      "target": "mirror_gate"
+    }
+  ]
+}
