@@ -1,0 +1,16 @@
+{
+  "id": "ember_vein",
+  "text": "You follow the flame’s whisper into a hollow vein beneath the basalt. Walls glow with molten memory, each pulse like a heartbeat.",
+  "choices": [
+    {
+      "id": "listen_embers",
+      "label": "Lean close and listen to the embers’ murmurs.",
+      "target": "ember_whisper"
+    },
+    {
+      "id": "step_back",
+      "label": "Step back toward the basalt slab.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
