@@ -1,0 +1,16 @@
+{
+  "id": "ember_whisper",
+  "text": "In the crackle you hear a name that could be yours. Ash hides memory like snow hides paths.",
+  "choices": [
+    {
+      "id": "accept_name",
+      "label": "Accept the name and breathe it back.",
+      "target": "ember_marked"
+    },
+    {
+      "id": "deny_name",
+      "label": "Deny it and swallow the heat.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
