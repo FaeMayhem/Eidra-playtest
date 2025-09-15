@@ -2,7 +2,9 @@
   "id": "mirrorfields_intro",
   "text": "The Mirrorfields hum. 🜻 glows faintly in basalt cracks. A small flame flickers at a fissure’s edge.",
   "choices": [
-    { "id": "observe_flame", "label": "Observe the flame closely.", "target": "observe_flame" },
-    { "id": "pick_up_shard", "label": "Pick up the mirror-glass shard.", "target": "pick_up_shard" }
-  ]
+  {
+    "id": "go_encounter",
+    "label": "Step toward the basalt slab and the trembling shard.",
+    "target": "mirrorfields_encounter"
+  }
 }
