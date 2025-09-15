@@ -1,0 +1,7 @@
+{
+  "id": "flame_result",
+  "text": "The flame warms your hand like a presence beside you. It does not burn.",
+  "choices": [
+    { "id": "back", "label": "Return to the basalt slab.", "target": "mirrorfields_encounter" }
+  ]
+}
