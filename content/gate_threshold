@@ -1,0 +1,16 @@
+{
+  "id": "gate_threshold",
+  "text": "At the seam, the glass is warmer, pliant. The shard in your hand balances like a key that hasn’t learned its lock.",
+  "choices": [
+    {
+      "id": "offer_shard",
+      "label": "Offer the shard to the seam.",
+      "target": "witness_knot"
+    },
+    {
+      "id": "keep_shard",
+      "label": "Pocket the shard and step away.",
+      "target": "mirror_gate"
+    }
+  ]
+}
