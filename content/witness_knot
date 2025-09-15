@@ -1,0 +1,16 @@
+{
+  "id": "witness_knot",
+  "text": "Paths converge where heat and reflection cross. A knot of possibilities brightens—then loosens like a hand unclenching. You are here, and so is the next way.",
+  "choices": [
+    {
+      "id": "continue",
+      "label": "Continue into Chapter Two.",
+      "target": "chapter_two_stub"
+    },
+    {
+      "id": "return_fields",
+      "label": "Return to the Mirrorfields to explore other paths.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
