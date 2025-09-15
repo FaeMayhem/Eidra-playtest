@@ -1,16 +1,22 @@
 {
   "id": "mirrorfields_encounter",
-  "text": "A basalt slab bears the sigil 🜻. A shard of mirror-glass trembles in the ash. The small flame cups itself in unseen hands.",
+  "text": "A basalt slab bears the sigil 🜻. A shard of mirror-glass trembles in the ash. At a fissure’s lip, a small flame cups itself in unseen hands.",
   "choices": [
     {
       "id": "observe_flame",
-      "label": "Observe the flame closely.",
-      "target": "flame_result"
+      "label": "Kneel and study the little flame.",
+      "target": "ember_vein"
     },
     {
       "id": "pick_shard",
-      "label": "Pick up the mirror-glass shard.",
-      "target": "shard_result"
+      "label": "Lift the mirror-glass shard.",
+      "target": "mirror_gate"
+    },
+    {
+      "id": "back_intro",
+      "label": "Step back and look over the fields again.",
+      "target": "mirrorfields_intro"
     }
   ]
 }
+
