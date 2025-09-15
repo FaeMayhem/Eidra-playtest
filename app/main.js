@@ -1,40 +1,36 @@
-// main.js — uses the Eidra engine to load + render a scene
-import { eidra } from "./engine.js";
+import { eidra } from "../engine/engine.js";
 
-const box = document.getElementById("out");
 const sessionId = "demo";
+const box = document.getElementById("eidra-out");
 
-// render the current scene into the #out box
-function renderScene(payload){
-  const { scene } = payload;
-  box.innerHTML = `
-    <b>Scene:</b> ${scene.id}<br>
-    <p>${scene.text}</p>
-    <ul id="choices" style="margin-left:1rem;">
-      ${scene.choices.map(c => `<li><button data-choice="${c.id}">${c.label}</button></li>`).join("")}
-    </ul>
-    <p><button id="waitBtn">(wait)</button></p>
-  `;
+// Render a scene into the page
+async function renderScene(out) {
+  // clear the box
+  box.innerHTML = "";
 
-  // hook up choices
-  const choicesUl = document.getElementById("choices");
-  choicesUl.addEventListener("click", async (e) => {
-    const btn = e.target.closest("button[data-choice]");
-    if (!btn) return;
-    const choiceId = btn.getAttribute("data-choice");
-    const next = await eidra.choose({ sessionId, choiceId });
-    renderScene(next);
+  // show scene text
+  const text = document.createElement("p");
+  text.textContent = out.scene.text;
+  box.appendChild(text);
+
+  // show choices as buttons
+  const choicesBox = document.createElement("div");
+  out.scene.choices.forEach(c => {
+    const btn = document.createElement("button");
+    btn.textContent = c.label;
+    btn.style.display = "block";
+    btn.style.margin = "0.5rem 0";
+    btn.onclick = async () => {
+      const next = await eidra.choose({ sessionId, choiceId: c.id });
+      renderScene(next);
+    };
+    choicesBox.appendChild(btn);
   });
-
-  // hook up wait
-  document.getElementById("waitBtn").addEventListener("click", async ()=>{
-    const next = await eidra.wait({ sessionId });
-    renderScene(next);
-  });
+  box.appendChild(choicesBox);
 }
 
+// initial load
 (async () => {
-  // load first scene from the engine
   const out = await eidra.load_scene({ sessionId, sceneId: "mirrorfields_intro" });
   renderScene(out);
 })();
