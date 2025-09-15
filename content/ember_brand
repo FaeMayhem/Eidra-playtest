@@ -1,0 +1,16 @@
+{
+  "id": "ember_brand",
+  "text": "The flame rests in your palms without burning, then leaves a faint sigil like warm charcoal: 🜻.",
+  "choices": [
+    {
+      "id": "hold_heat",
+      "label": "Hold the heat and listen again.",
+      "target": "ember_marked"
+    },
+    {
+      "id": "release_heat",
+      "label": "Let the warmth flow back into the fissure.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
