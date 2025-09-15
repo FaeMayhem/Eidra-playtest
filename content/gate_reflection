@@ -1,0 +1,21 @@
+{
+  "id": "gate_reflection",
+  "text": "The surface ripples and steadies. For a beat, two reflections occupy the same space: you—and the one who almost made different choices.",
+  "choices": [
+    {
+      "id": "step_through",
+      "label": "Step into the steadied image.",
+      "target": "witness_knot"
+    },
+    {
+      "id": "shatter_image",
+      "label": "Test the surface with the shard.",
+      "target": "gate_threshold"
+    },
+    {
+      "id": "back_gate",
+      "label": "Lower your hand and breathe.",
+      "target": "mirror_gate"
+    }
+  ]
+}
