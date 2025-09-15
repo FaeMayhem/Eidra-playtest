@@ -1,0 +1,11 @@
+{
+  "id": "chapter_two_stub",
+  "text": "Chapter Two opening placeholder. (We’ll expand this into the next region: The Resonant Orchard, or another location you choose.)",
+  "choices": [
+    {
+      "id": "back_to_knot",
+      "label": "Back to the Witness Knot.",
+      "target": "witness_knot"
+    }
+  ]
+}
