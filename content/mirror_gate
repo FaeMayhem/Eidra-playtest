@@ -1,15 +1,20 @@
 {
   "id": "mirror_gate",
-  "text": "The shard hums as you hold it. A frame of basalt cracks, revealing a mirror-sheen doorway. The gate waits, alive with reflection.",
+  "text": "The shard sings against your skin. A door of reflective air rises from the cracked basalt—thin as water, bright as noon.",
   "choices": [
     {
       "id": "enter_gate",
-      "label": "Step through the mirror gate.",
+      "label": "Step through the mirror door.",
       "target": "gate_hall"
     },
     {
-      "id": "drop_shard",
-      "label": "Drop the shard and retreat to the slab.",
+      "id": "study_edge",
+      "label": "Study your reflection at the edge.",
+      "target": "gate_reflection"
+    },
+    {
+      "id": "gate_retreat",
+      "label": "Pocket the shard and retreat.",
       "target": "mirrorfields_encounter"
     }
   ]
