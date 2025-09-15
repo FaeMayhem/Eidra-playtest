@@ -1,15 +1,20 @@
 {
   "id": "ember_vein",
-  "text": "You follow the flame’s whisper into a hollow vein beneath the basalt. Walls glow with molten memory, each pulse like a heartbeat.",
+  "text": "Heat gathers under the rock like a slow breath. The flame leans toward you as if to speak.",
   "choices": [
     {
       "id": "listen_embers",
-      "label": "Lean close and listen to the embers’ murmurs.",
+      "label": "Lean closer and listen.",
       "target": "ember_whisper"
     },
     {
-      "id": "step_back",
-      "label": "Step back toward the basalt slab.",
+      "id": "touch_cinders",
+      "label": "Cup the flame gently in your hands.",
+      "target": "ember_brand"
+    },
+    {
+      "id": "return_slab",
+      "label": "Leave it be and return to the slab.",
       "target": "mirrorfields_encounter"
     }
   ]
