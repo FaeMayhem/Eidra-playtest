@@ -1,0 +1,16 @@
+{
+  "id": "gate_echo",
+  "text": "A voice answers in your cadence: not late, just arriving. The sound leads toward a faint seam ahead.",
+  "choices": [
+    {
+      "id": "follow_voice",
+      "label": "Follow the voice to the seam.",
+      "target": "gate_threshold"
+    },
+    {
+      "id": "fall_silent",
+      "label": "Say nothing and listen until the steps stop.",
+      "target": "mirror_gate"
+    }
+  ]
+}
