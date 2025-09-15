@@ -1,25 +1,40 @@
-// main.js — super simple starter
+// main.js — uses the Eidra engine to load + render a scene
+import { eidra } from "./engine.js";
 
 const box = document.getElementById("out");
-box.textContent = "Loading scene...";
+const sessionId = "demo";
 
-async function loadScene(id) {
-  const res = await fetch(`./content/${id}.json`);
-  if (!res.ok) {
-    box.textContent = "Error: couldn't load " + id;
-    return;
-  }
-  const scene = await res.json();
-
-  // show scene text + choices
+// render the current scene into the #out box
+function renderScene(payload){
+  const { scene } = payload;
   box.innerHTML = `
     <b>Scene:</b> ${scene.id}<br>
     <p>${scene.text}</p>
-    <ul>
-      ${scene.choices.map(c => `<li>${c.label}</li>`).join("")}
+    <ul id="choices" style="margin-left:1rem;">
+      ${scene.choices.map(c => `<li><button data-choice="${c.id}">${c.label}</button></li>`).join("")}
     </ul>
+    <p><button id="waitBtn">(wait)</button></p>
   `;
+
+  // hook up choices
+  const choicesUl = document.getElementById("choices");
+  choicesUl.addEventListener("click", async (e) => {
+    const btn = e.target.closest("button[data-choice]");
+    if (!btn) return;
+    const choiceId = btn.getAttribute("data-choice");
+    const next = await eidra.choose({ sessionId, choiceId });
+    renderScene(next);
+  });
+
+  // hook up wait
+  document.getElementById("waitBtn").addEventListener("click", async ()=>{
+    const next = await eidra.wait({ sessionId });
+    renderScene(next);
+  });
 }
 
-// load first scene
-loadScene("mirrorfields_intro");
+(async () => {
+  // load first scene from the engine
+  const out = await eidra.load_scene({ sessionId, sceneId: "mirrorfields_intro" });
+  renderScene(out);
+})();
