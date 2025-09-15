@@ -1,0 +1,16 @@
+{
+  "id": "ember_marked",
+  "text": "Your pulse and the pulse beneath the basalt fall into step. The sigil on your palm hums once and fades.",
+  "choices": [
+    {
+      "id": "follow_pulse",
+      "label": "Follow the rhythm into the dark below.",
+      "target": "witness_knot"
+    },
+    {
+      "id": "step_back",
+      "label": "Back away toward the open fields.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
