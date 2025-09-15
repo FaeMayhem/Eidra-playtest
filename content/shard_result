@@ -1,0 +1,11 @@
+{
+  "id": "shard_result",
+  "text": "You lift the mirror-glass. For a heartbeat it reflects you and someone else—then only the fields again.",
+  "choices": [
+    {
+      "id": "back",
+      "label": "Return to the slab.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
