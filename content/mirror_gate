@@ -1,0 +1,16 @@
+{
+  "id": "mirror_gate",
+  "text": "The shard hums as you hold it. A frame of basalt cracks, revealing a mirror-sheen doorway. The gate waits, alive with reflection.",
+  "choices": [
+    {
+      "id": "enter_gate",
+      "label": "Step through the mirror gate.",
+      "target": "gate_hall"
+    },
+    {
+      "id": "drop_shard",
+      "label": "Drop the shard and retreat to the slab.",
+      "target": "mirrorfields_encounter"
+    }
+  ]
+}
